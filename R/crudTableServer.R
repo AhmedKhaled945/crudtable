@@ -102,7 +102,10 @@ crudTableServer <- function(id,
         newForm <- callModule(formServer, 'newForm')
 
         observeEvent(input$newButton, {
+            print('initiated')
+            print('1')
             newForm$loadTrigger(newForm$loadTrigger() + 1)
+            print('2')
             showModal(formUI(ns('newForm')))
         })
 
