@@ -148,7 +148,8 @@ crudTableServer <- function(id,
             DT::datatable(d,
                           rownames = FALSE,
                           selection = 'none',
-                          escape = -1)  # escape HTML everywhere except the first column
+                          escape = -1,
+                          style='bootstrap')  # escape HTML everywhere except the first column
         })
 
         dataChangedTrigger
