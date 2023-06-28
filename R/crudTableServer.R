@@ -102,16 +102,17 @@ crudTableServer <- function(id,
         newForm <- callModule(formServer, 'newForm')
 
         observeEvent(input$newButton, {
-            print('initiated')
-            print('1')
             newForm$loadTrigger(newForm$loadTrigger() + 1)
-            print('2')
             showModal(formUI(ns('newForm')))
         })
 
         observeEvent(newForm$saveTrigger(), ignoreInit = TRUE, {
+            print('initiated')
+            print('1')
             dao$insert(newForm$record())
+            print('2')
             dataChangedTrigger(dataChangedTrigger() + 1)
+            print('3')
         })
 
         # ---- edit record -----------------------------------------
