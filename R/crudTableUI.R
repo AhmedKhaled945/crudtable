@@ -81,7 +81,7 @@ crudTableUI <- function(id,
         ))
     }
     args <- c(args, list(
-        DT::dataTableOutput(ns('table'))
+        DT::DTOutput(ns('table'))
     ))
     do.call(tagList, args)
 }
