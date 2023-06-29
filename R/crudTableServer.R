@@ -134,7 +134,7 @@ crudTableServer <- function(id,
             dao$getData()
         })
 
-        output$table <- DT::renderDataTable({
+        output$table <- DT::renderDT({
             d <- data()
             actions <- purrr::map_chr(d$id, function(id_) {
                 paste0('<div class="btn-group" style="width: 75px;" role="group">',
