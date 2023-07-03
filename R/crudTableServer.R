@@ -153,7 +153,7 @@ crudTableServer <- function(id,
                           rownames = FALSE,
                           selection = 'none',
                           escape = -1,
-                          style='bootstrap')  # escape HTML everywhere except the first column
+                          style='bootstrap', options = list(dom = 't'))  # escape HTML everywhere except the first column
         })
 
         dataChangedTrigger
