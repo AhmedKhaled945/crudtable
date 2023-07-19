@@ -63,7 +63,7 @@ dataFrameDao <- function(d) {
         insert = function(record) {
             assert_that(is.list(record))
             assert_that(length(setdiff(names(attributes), names(record))) == 0)
-            if(nrow(merge(record,data))>0){ # check if duplicated
+            if(!(nrow(merge(record,data))>0)){ # check if duplicated
             print('Not duplicated')
             record$id <- max(0, data$id) + 1
             record <- as.data.frame(record, stringsAsFactors = FALSE)
