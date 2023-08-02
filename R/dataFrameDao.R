@@ -62,6 +62,11 @@ dataFrameDao <- function(d) {
 
         insert = function(record) {
             assert_that(is.list(record))
+            print(attributes)
+            print(names(attributes))
+            print(record)
+            print(names(record))
+            print('------')
             assert_that(length(setdiff(names(attributes), names(record))) == 0)
             if(!(nrow(merge(record,data))>0)){ # check if duplicated
             print('Not duplicated')
