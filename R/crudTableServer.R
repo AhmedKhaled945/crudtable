@@ -138,7 +138,10 @@ crudTableServer <- function(id,
             dataChangedTrigger()
             dao$getData()
         })
-
+        if(manualLabel){
+            print(data$Manual)
+            print(data)
+        }
         output$table <- DT::renderDT({
             d <- data()
             actions <- purrr::map_chr(d$id, function(id_) {
