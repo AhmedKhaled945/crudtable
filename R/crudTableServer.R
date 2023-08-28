@@ -71,7 +71,8 @@
 crudTableServer <- function(id,
                             dao,
                             formUI = simpleFormUIFactory(dao),
-                            formServer = formServerFactory(dao)) {
+                            formServer = formServerFactory(dao),
+                            manualLabel = F) {
 
     moduleServer(id, function(input, output, session) {
         ns <- session$ns
@@ -149,11 +150,17 @@ crudTableServer <- function(id,
             })
             d <- cbind(data.frame(' ' = actions, check.names = FALSE, stringsAsFactors = FALSE),
                        d)
-            DT::datatable(d,
+            if(manualLabel){
+                DT::datatable(d,
                           rownames = FALSE,
                           selection = 'none',
                           escape = -1,
-                          style='bootstrap', options = list(dom = 't'))  # escape HTML everywhere except the first column
+                          style='bootstrap', options = list(dom = 't'))%>%formatStyle('Nitrite_Level','Manual',color=styleEqual(c('true','false'),c('orange','white')))}
+            else{DT::datatable(d,
+                          rownames = FALSE,
+                          selection = 'none',
+                          escape = -1,
+                          style='bootstrap', options = list(dom = 't'))}  # escape HTML everywhere except the first column
         })
 
         dataChangedTrigger
