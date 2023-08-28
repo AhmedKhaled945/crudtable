@@ -136,11 +136,6 @@ crudTableServer <- function(id,
 
         data <- reactive({
             dataChangedTrigger()
-            data <- dao$getData()
-            if(manualLabel){
-            print(data$Manual)
-            print(data)
-        }
             dao$getData()
             
         })
@@ -161,7 +156,7 @@ crudTableServer <- function(id,
                           rownames = FALSE,
                           selection = 'none',
                           escape = -1,
-                          style='bootstrap', options = list(dom = 't'))%>%formatStyle('Nitrite_Level','Manual',color=styleEqual(c(TRUE,FALSE),c('orange','white')))}
+                          style='bootstrap', options = list(dom = 't',columnDefs = list(list(targets=5,visible=F))  ))%>%formatStyle('Nitrite_Level','Manual',color=styleEqual(c(TRUE,FALSE),c('orange','white')))}
             else{DT::datatable(d,
                           rownames = FALSE,
                           selection = 'none',
