@@ -8,7 +8,8 @@ crudTableServer(
   id,
   dao,
   formUI = simpleFormUIFactory(dao),
-  formServer = formServerFactory(dao)
+  formServer = formServerFactory(dao),
+  manualLabel = T
 )
 }
 \arguments{
