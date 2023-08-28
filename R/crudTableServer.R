@@ -161,7 +161,7 @@ crudTableServer <- function(id,
                           rownames = FALSE,
                           selection = 'none',
                           escape = -1,
-                          style='bootstrap', options = list(dom = 't'))%>%formatStyle('Nitrite_Level','Manual',color=styleEqual(c('true','false'),c('orange','white')))}
+                          style='bootstrap', options = list(dom = 't'))%>%formatStyle('Nitrite_Level','Manual',color=styleEqual(c(TRUE,FALSE),c('orange','white')))}
             else{DT::datatable(d,
                           rownames = FALSE,
                           selection = 'none',
