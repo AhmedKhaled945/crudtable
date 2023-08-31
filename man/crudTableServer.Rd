@@ -9,7 +9,9 @@ crudTableServer(
   dao,
   formUI = simpleFormUIFactory(dao),
   formServer = formServerFactory(dao),
-  manualLabel = F
+  manualLabel = F,
+  cols=c(),
+  new_cols=c()
 )
 }
 \arguments{
