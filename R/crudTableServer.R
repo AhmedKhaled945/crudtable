@@ -152,11 +152,12 @@ crudTableServer <- function(id,
             d <- cbind(data.frame(' ' = actions, check.names = FALSE, stringsAsFactors = FALSE),
                        d)
             if(manualLabel){
-                DT::datatable(d,
+                DT::datatable(d%>%rename('Nitrite (µg/g)'='Nitrite_Level'),
                           rownames = FALSE,
                           selection = 'none',
                           escape = -1,
-                          style='bootstrap', options = list(dom = 't',columnDefs = list(list(targets=c(1,6),visible=F))  ))%>%formatStyle('Nitrite_Level','Manual',color=styleEqual(c(TRUE,FALSE),c('red','white')))}
+                          style='bootstrap', options = list(dom = 't',columnDefs = list(list(targets=c(1,6),visible=F))  ))%>%formatStyle('Nitrite_Level','Manual',color=styleEqual(c(TRUE,FALSE),c('red','white')))
+            }
             else{DT::datatable(d,
                           rownames = FALSE,
                           selection = 'none',
