@@ -159,7 +159,7 @@ crudTableServer <- function(id,
                           rownames = FALSE,
                           selection = 'none',
                           escape = -1,
-                          style='bootstrap', options = list(dom = 't',columnDefs = list(list(targets=c(1,6),visible=F))  ))%>%formatStyle('Nitrite_Level','Manual',color=styleEqual(c(TRUE,FALSE),c('red','white')))
+                          style='bootstrap', options = list(dom = 't',columnDefs = list(list(targets=c(1,6),visible=F))  ))%>%formatStyle('Nitrite (µg/g)','Manual',color=styleEqual(c(TRUE,FALSE),c('red','white')))
             }
             else{DT::datatable(d%>%rename(setNames(cols, new_cols)),
                           rownames = FALSE,
