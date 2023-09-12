@@ -159,13 +159,17 @@ crudTableServer <- function(id,
                           rownames = FALSE,
                           selection = 'none',
                           escape = -1,
-                          style='bootstrap', options = list(dom = 't',columnDefs = list(list(targets=c(1,6),visible=F))  ))%>%formatStyle('Nitrite (µg/g)','Manual',color=styleEqual(c(TRUE,FALSE),c('yellow','white')))
+                          style='bootstrap', options = list(dom = 't',columnDefs = list(list(targets=c(1,6),visible=F),list(
+                         targets = "_all",  className = "dt-center"
+                       ))))%>%formatStyle('Nitrite (µg/g)','Manual',color=styleEqual(c(TRUE,FALSE),c('yellow','white')))
             }
             else{DT::datatable(d%>%rename(setNames(cols, new_cols)),
                           rownames = FALSE,
                           selection = 'none',
                           escape = -1,
-                          style='bootstrap', options = list(dom = 't',columnDefs = list(list(targets=c(1),visible=F))))}  # escape HTML everywhere except the first column
+                          style='bootstrap', options = list(dom = 't',columnDefs = list(list(targets=c(1),visible=F)
+                         targets = "_all",  className = "dt-center"
+                       ))))}  # escape HTML everywhere except the first column
         })
 
         dataChangedTrigger
