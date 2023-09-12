@@ -167,7 +167,7 @@ crudTableServer <- function(id,
                           rownames = FALSE,
                           selection = 'none',
                           escape = -1,
-                          style='bootstrap', options = list(dom = 't',columnDefs = list(list(targets=c(1),visible=F)
+                          style='bootstrap', options = list(dom = 't',columnDefs = list(list(targets=c(1),visible=F),list(
                          targets = "_all",  className = "dt-center"
                        ))))}  # escape HTML everywhere except the first column
         })
