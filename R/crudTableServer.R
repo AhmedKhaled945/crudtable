@@ -161,7 +161,7 @@ crudTableServer <- function(id,
                           escape = -1,
                           style='bootstrap', options = list(dom = 't',columnDefs = list(list(targets=c(1,6),visible=F),list(
                          targets = "_all",  className = "dt-center"
-                       ))))%>%formatStyle('Nitrite (µg/g)','Manual',color=styleEqual(c(TRUE,FALSE),c('#006400','black')), fontWeight = styleEqual(c(0, 1), c('', 'bold')))
+                       ))))%>%formatStyle('Nitrite (µg/g)','Manual',color=styleEqual(c(TRUE,FALSE),c('#006400','black')), fontWeight = styleEqual(c(TRUE, FALSE), c('bold', '')))
             }
             else{DT::datatable(d%>%rename(setNames(cols, new_cols)),
                           rownames = FALSE,
