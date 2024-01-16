@@ -30,6 +30,7 @@ formServerFactory <- function(dao,
     function(input, output, session) {
         result <- list(saveTrigger = reactiveVal(0),
                        loadTrigger = reactiveVal(0),
+                       reloadTrigger = reactiveVal(0),
                        record = reactiveVal(NULL))
 
         observeEvent(result$loadTrigger(), ignoreInit = TRUE, {
