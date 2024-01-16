@@ -74,7 +74,8 @@ crudTableServer <- function(id,
                             formServer = formServerFactory(dao),
                             manualLabel = F,
                             cols = c(),
-                            new_cols = c()
+                            new_cols = c(),
+                            reload_btn = reactive(0)
                            ) {
 
     moduleServer(id, function(input, output, session) {
@@ -95,6 +96,10 @@ crudTableServer <- function(id,
             )
         })
 
+        observeEvent(reload_btn(), {
+            newForm$reloadTrigger(newForm$reloadTrigger() + 1)
+        })
+        
         observeEvent(input$deleteAction, {
             dao$delete(input$deleteId)
             dataChangedTrigger(dataChangedTrigger() + 1)
