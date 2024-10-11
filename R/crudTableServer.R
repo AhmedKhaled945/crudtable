@@ -81,7 +81,7 @@ crudTableServer <- function(id,
     moduleServer(id, function(input, output, session) {
         ns <- session$ns
         dataChangedTrigger <- reactiveVal(0)
-
+        StartClick <- 0
         # ---- delete record ---------------------------------------
 
         observeEvent(input$deleteId, {
@@ -111,8 +111,13 @@ crudTableServer <- function(id,
         newForm <- callModule(formServer, 'newForm')
 
         observeEvent(input$newButton, {
+            if(StartClick == 0){
+                StartClick = 1
+            }
+            else{
             newForm$loadTrigger(newForm$loadTrigger() + 1)
             showModal(formUI(ns('newForm')))
+            }
         })
 
         observeEvent(newForm$saveTrigger(), ignoreInit = TRUE, {
