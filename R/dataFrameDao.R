@@ -70,6 +70,7 @@ dataFrameDao <- function(d) {
             #print(record$Component)
             if(record$Amount == 0 & record$Component != 'Water'){
                 print('Prevented freeform 0 addition')
+                invisible(1)
             }
             else{
             record$id <- max(0, data$id) + 1
