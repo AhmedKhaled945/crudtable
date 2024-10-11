@@ -65,6 +65,9 @@ dataFrameDao <- function(d) {
             assert_that(length(setdiff(names(attributes), names(record))) == 0)
             if(!(nrow(merge(record,data))>0)){ # check if duplicated
             print('Not duplicated')
+            print(record)
+            print(record$Amount)
+            print(record$Component)
             record$id <- max(0, data$id) + 1
             record <- as.data.frame(record, stringsAsFactors = FALSE)
             data <<- rbind(data, record[colnames(data)])
