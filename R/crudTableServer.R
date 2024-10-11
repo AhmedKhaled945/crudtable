@@ -111,13 +111,13 @@ crudTableServer <- function(id,
         newForm <- callModule(formServer, 'newForm')
 
         observeEvent(input$newButton, {
-            if(StartClick == 0){
-                StartClick = 1
-            }
-            else{
+            #if(StartClick == 0){
+            #    StartClick = 1
+            #}
+            #else{
             newForm$loadTrigger(newForm$loadTrigger() + 1)
             showModal(formUI(ns('newForm')))
-            }
+            #}
         })
 
         observeEvent(newForm$saveTrigger(), ignoreInit = TRUE, {
