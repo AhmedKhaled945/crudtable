@@ -68,7 +68,7 @@ dataFrameDao <- function(d) {
             #print(record)
             #print(record$Amount)
             #print(record$Component)
-            if(record$Amount == 0 and record$Component != 'Water'){
+            if(record$Amount == 0 & record$Component != 'Water'){
                 print('Prevented freeform 0 addition')
             }
             else{
